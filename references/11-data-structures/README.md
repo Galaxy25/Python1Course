@@ -23,7 +23,7 @@ print(list3)
 [1, 2, 3]
 ```
 
-New values can be added using `append()`. For lists `extend()` can be used for combining lists and other data structures. `pop()` removes items from the list using the index. Values being added and removed makes lists *changeable*. The List is also seen with duplicates without throwing any errors.
+New values can be added using `append()`. For lists, `extend()` can be used for combining lists and other data structures. `pop()` removes items from the list using the index. Values being added and removed makes lists *changeable*. Multiple equivalent values can be stored in a list.
 
 ```python3
 numbers = [1,2,3]
@@ -51,6 +51,7 @@ for i in range(len(letters)):
 ```
 
 ```
+0
 a
 1
 b
@@ -60,7 +61,7 @@ c
 
 Items can be checked using `in`.
 
-```
+```python3
 number = [1, 2, 3]
 if 1 in number:
     print(True)
@@ -70,13 +71,13 @@ if 1 in number:
 True
 ```
 
-Lists are useful tools for storing values that need to be ordered and values are planned to be added during the program's runtime. The drawbacks of using a List is increasing runtime when finding values and making changes as it increases it size.
+Lists are useful tools for storing values in a set order and allows new values to be added during its runtime. The drawbacks of using a list is increasing runtime when finding values and making changes as it increases it size.
 
 ## `tuple`
 
 Tuples are *ordered*, *unchangeable*, *allow duplicates*.
 
-Tuples are similar to Lists. The main difference is values cannot be added, removed or changed. Tuples can be created using `()` or can be converted with `tuple()`
+Tuples are similar to lists. The main difference is values cannot be added, removed or changed. Tuples can be created using `()` or can be converted with `tuple()`
 
 ```python3
 number = (1, 2, 3)
@@ -91,6 +92,67 @@ id = ("Nathan St. John", 67437)
 
 ## `set`
 
-Sets are *unordered*, *changeable* but items within cannot be changed, and *doesn't allow duplicates*
+Sets are *unordered*, *changeable* but items within it cannot be changed, and *doesn't allow duplicates*
+
+Sets are created using `{}` if it isn't empty and `set()` can be used to convert iterable objects.
+
+```python3
+number1 = set([1, 2, 3, 3, 3, 3])
+number2 = {5,4,3}
+```
+
+When a empty `{}` is used. The compiler recognizes it as a dictionary because they use the same syntax.
+
+```python3
+set1 = {}
+print(type(set1))
+```
+
+```
+<class 'dict'>
+```
+Values can be added to set using `add()`. Values already in the set are ignored since it *doesn't allow duplicates*
+
+```python3
+letters = set("word")
+letters.add("a")
+print(letters)
+letters.add("w")
+print(letters)
+```
+
+```
+{'o', 'a', 'd', 'r', 'w'}
+{'o', 'a', 'd', 'r', 'w'}
+```
+
+Values can be removed using `remove()`. It throws an error if the value isn't in the set.
+
+```python3
+letters = set("word")
+letters.remove("w")
+print(letters)
+letters.remove("w")
+```
+
+```
+{'o', 'r', 'd'}
+KeyError: 'w'
+```
+
+Items can be checked for by using `in`.
+
+```
+letters = set("word")
+if "o" in letters:
+    letters.remove("o")
+if "a" in letters:
+    letters.remove("a")
+print(letters)
+```
+
+```
+{'r', 'w', 'd'}
+```
 
 ## `dict`
